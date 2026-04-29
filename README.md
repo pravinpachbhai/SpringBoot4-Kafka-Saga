@@ -2,7 +2,7 @@
 
 # Because of the limited resources I am creating all the service in one project
 
-# Please create one microservice for each service
+# Please create different microservices for each service below and related database. Clear responsibilities, APIs, and database design per service.
 <br/>
 1 - UserService<br/>
 2 - OrderService<br/>
