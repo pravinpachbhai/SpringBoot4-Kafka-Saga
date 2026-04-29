@@ -3,30 +3,28 @@ package com.pravin.kafka.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "kafka_failed_messages")
-public class KafkaFailedMessage {
+@Table(name = "payments")
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String topic;
+    private Long orderId;
 
-    @Lob
-    private String message;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status;
 
-    @Lob
-    private String error;
+    private BigDecimal amount;
 
-    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
 

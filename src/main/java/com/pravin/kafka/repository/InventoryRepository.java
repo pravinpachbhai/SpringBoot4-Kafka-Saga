@@ -1,19 +1,7 @@
 package com.pravin.kafka.repository;
 
+import com.pravin.kafka.entity.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import com.pravin.kafka.entity.Product;
 
-import java.math.BigDecimal;
-
-public interface InventoryRepository extends JpaRepository<Product, Long> {
-
-    @Modifying
-    @Query("update Product p set p.price = :price where p.code = :productCode")
-    int updateProductPrice(
-            @Param("productCode") String productCode,
-            @Param("price") BigDecimal price
-    );
+public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 }

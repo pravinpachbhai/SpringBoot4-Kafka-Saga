@@ -1,5 +1,6 @@
 package com.pravin.kafka.entity;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,25 +10,23 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "kafka_failed_messages")
-public class KafkaFailedMessage {
+@Table(name = "notifications")
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String topic;
+    private String type;
+    private String recipient;
 
-    @Lob
+    private String status;
+
+    @Column(length = 1000)
     private String message;
 
-    @Lob
-    private String error;
-
-    @Builder.Default
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime sentAt;
 
 
 }

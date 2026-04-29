@@ -1,24 +1,35 @@
 package com.pravin.kafka.service;
 
-import com.pravin.kafka.entity.Product;
+import com.pravin.kafka.entity.Inventory;
+import com.pravin.kafka.exception.InsufficientStockException;
+import com.pravin.kafka.exception.ResourceNotFoundException;
 import com.pravin.kafka.repository.InventoryRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class InventoryService {
-    private static final Logger log = LoggerFactory.getLogger(InventoryService.class);
-    private final InventoryRepository productRepository;
 
-    public InventoryService(InventoryRepository productRepository){
-        this.productRepository = productRepository;
+    private final InventoryRepository repo;
+
+    public InventoryService(InventoryRepository repo) {
+        this.repo = repo;
     }
 
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public Inventory get(Long productId) {
+        return repo.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("Inventory not found"));
     }
 
+    public Inventory reserve(Long productId, int qty) {
+        Inventory inv = get(productId);
+
+        if (inv.getAvailableQuantity() < qty) {
+            throw new InsufficientStockException("Not enough stock for product: " + productId);
+        }
+
+        inv.setAvailableQuantity(inv.getAvailableQuantity() - qty);
+        inv.setReservedQuantity(inv.getReservedQuantity() + qty);
+
+        return repo.save(inv);
+    }
 }

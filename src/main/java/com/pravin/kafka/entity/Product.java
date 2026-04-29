@@ -1,15 +1,14 @@
 package com.pravin.kafka.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Setter
 @Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "products")
@@ -33,10 +32,6 @@ public class Product {
 
     @Column(nullable = false)
     private LocalDateTime updated;
-
-    public Product() {
-
-    }
 
     @PrePersist
     public void prePersist() {

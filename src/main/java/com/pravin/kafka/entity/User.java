@@ -4,30 +4,31 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "kafka_failed_messages")
-public class KafkaFailedMessage {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String topic;
+    private String name;
 
-    @Lob
-    private String message;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    @Lob
-    private String error;
+    @Column(nullable = false)
+    private String passwordHash;
 
-    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Address> addresses;
 
 }
