@@ -14,15 +14,11 @@
 <img src="src/main/resources/static/Diagram.jpg" alt="Description" width="800">
 
 
-| Header 1 | Header 2 | Header 3 |
+| Service | DB | Responsibility |
 | -------- | -------- | -------- |
-| Row 1, Col 1 | Row 1, Col 2 | Row 1, Col 3 |
-| Row 2, Col 1 | Row 2, Col 2 | Row 2, Col 3 |
-
-Service	DB	Key Responsibility
-UserService	user_db	User management
-OrderService	order_db	Orders
-InventoryService	inventory_db	Stock
-PaymentService	payment_db	Payments
-ShippingService	shipping_db	Delivery
-EmailNotificationService	notification_db	Notifications
+| UserService |	user_db	| User management
+| OrderService |	order_db	| Orders
+| InventoryService	| inventory_db	| Stock
+| PaymentService	| payment_db	| Payments
+| ShippingService	| shipping_db	| Delivery
+| EmailNotificationService|	notification_db	| Notifications
