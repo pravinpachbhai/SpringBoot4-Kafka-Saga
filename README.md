@@ -11,8 +11,6 @@
 5 - ShippingService<br/>
 6 - EmailNotificationService<br/>
 <br/><br/>
-<img src="src/main/resources/static/Diagram.jpg" alt="Description" width="800">
-
 
 | Service | DB | Responsibility |
 | -------- | -------- | -------- |
@@ -22,3 +20,9 @@
 | PaymentService	| payment_db	| Payments
 | ShippingService	| shipping_db	| Delivery
 | EmailNotificationService|	notification_db	| Notifications
+
+<br/><br/>
+<img src="src/main/resources/static/Diagram.jpg" alt="Description" width="800">
+
+
+
