@@ -2,7 +2,7 @@
 
 # Because of the limited resources I am creating all the service in one project
 
-# Please create one microservice for each service
+# Please create different microservices for each service below and related database. Clear responsibilities, APIs, and database design per service.
 <br/>
 1 - UserService<br/>
 2 - OrderService<br/>
@@ -11,4 +11,18 @@
 5 - ShippingService<br/>
 6 - EmailNotificationService<br/>
 <br/><br/>
+
+| Service | DB | Responsibility |
+| -------- | -------- | -------- |
+| UserService |	user_db	| User management
+| OrderService |	order_db	| Orders
+| InventoryService	| inventory_db	| Stock
+| PaymentService	| payment_db	| Payments
+| ShippingService	| shipping_db	| Delivery
+| EmailNotificationService|	notification_db	| Notifications
+
+<br/><br/>
 <img src="src/main/resources/static/Diagram.jpg" alt="Description" width="800">
+
+
+
