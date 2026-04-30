@@ -1,5 +1,7 @@
 package com.pravin.kafka.service;
 
+import com.pravin.kafka.component.DataMapper;
+import com.pravin.kafka.dto.InventoryResponse;
 import com.pravin.kafka.entity.Inventory;
 import com.pravin.kafka.exception.InsufficientStockException;
 import com.pravin.kafka.exception.ResourceNotFoundException;
@@ -10,26 +12,29 @@ import org.springframework.stereotype.Service;
 public class InventoryService {
 
     private final InventoryRepository repo;
-
-    public InventoryService(InventoryRepository repo) {
+    private final DataMapper dataMapper;
+    public InventoryService(InventoryRepository repo, DataMapper dataMapper) {
         this.repo = repo;
+        this.dataMapper = dataMapper;
     }
 
-    public Inventory get(Long productId) {
-        return repo.findById(productId)
+    public InventoryResponse get(Long productId) {
+        Inventory inventory =  repo.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Inventory not found"));
+        return dataMapper.toResponse(inventory);
     }
 
-    public Inventory reserve(Long productId, int qty) {
-        Inventory inv = get(productId);
+    public InventoryResponse reserve(Long productId, int qty) {
+        Inventory inventory =  repo.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("Inventory not found"));
 
-        if (inv.getAvailableQuantity() < qty) {
+        if (inventory.getAvailableQuantity() < qty) {
             throw new InsufficientStockException("Not enough stock for product: " + productId);
         }
 
-        inv.setAvailableQuantity(inv.getAvailableQuantity() - qty);
-        inv.setReservedQuantity(inv.getReservedQuantity() + qty);
+        inventory.setAvailableQuantity(inventory.getAvailableQuantity() - qty);
+        inventory.setReservedQuantity(inventory.getReservedQuantity() + qty);
 
-        return repo.save(inv);
+        return dataMapper.toResponse(repo.save(inventory));
     }
 }

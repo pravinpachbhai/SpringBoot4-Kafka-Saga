@@ -1,6 +1,6 @@
 package com.pravin.kafka.controller;
 
-import com.pravin.kafka.entity.Inventory;
+import com.pravin.kafka.dto.InventoryResponse;
 import com.pravin.kafka.service.InventoryService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +15,12 @@ public class InventoryController {
     }
 
     @GetMapping("/{productId}")
-    public Inventory get(@PathVariable Long productId) {
+    public InventoryResponse get(@PathVariable Long productId) {
         return service.get(productId);
     }
 
     @PostMapping("/reserve")
-    public Inventory reserve(@RequestParam Long productId,
+    public InventoryResponse reserve(@RequestParam Long productId,
                              @RequestParam int quantity) {
         return service.reserve(productId, quantity);
     }

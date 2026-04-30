@@ -1,6 +1,7 @@
 package com.pravin.kafka.controller;
 
-import com.pravin.kafka.entity.Order;
+import com.pravin.kafka.dto.OrderRequest;
+import com.pravin.kafka.dto.OrderResponse;
 import com.pravin.kafka.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +18,17 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order create(@RequestBody Order order) {
+    public OrderResponse create(@RequestBody OrderRequest order) {
         return service.create(order);
     }
 
     @GetMapping("/{id}")
-    public Order get(@PathVariable Long id) {
+    public OrderResponse get(@PathVariable Long id) {
         return service.get(id);
     }
 
     @GetMapping("/user/{userId}")
-    public List<Order> getByUser(@PathVariable Long userId) {
+    public List<OrderResponse> getByUser(@PathVariable Long userId) {
         return service.getByUser(userId);
     }
 }
