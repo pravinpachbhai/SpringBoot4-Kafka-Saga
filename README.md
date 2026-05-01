@@ -1,4 +1,4 @@
-# SpringBoot4-Dashboard-Management-API
+# SpringBoot4-Dashboard-Inventory-Management-API
 
 <br/>
 1 - UserService<br/>
