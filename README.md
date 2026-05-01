@@ -20,7 +20,9 @@
 | ShippingService	         | shipping_db	| Delivery
 | EmailNotificationService |	notification_db	| Notifications
 
-
+<br/><br/>
+## SpringBoot4-Dashboard-Inventory-Management-API
+https://github.com/pravinpachbhai/SpringBoot4-OrderProcessing-Kafka-SAGA
 
 
 
