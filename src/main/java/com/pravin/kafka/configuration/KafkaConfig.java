@@ -2,7 +2,6 @@ package com.pravin.kafka.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.test.EmbeddedKafkaBroker;
 import org.springframework.kafka.test.EmbeddedKafkaKraftBroker;
 
@@ -15,4 +14,6 @@ public class KafkaConfig {
                 .kafkaPorts(9092)
                 .brokerListProperty("spring.kafka.bootstrap-servers");
     }
+
+
 }

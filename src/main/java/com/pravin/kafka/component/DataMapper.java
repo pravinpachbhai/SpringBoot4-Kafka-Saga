@@ -51,4 +51,6 @@ public interface DataMapper {
 
     NotificationResponse toResponse(Notification notification);
 
+    // ===== PRODUCT =====
+    ProductResponse toResponse(Product product);
 }
