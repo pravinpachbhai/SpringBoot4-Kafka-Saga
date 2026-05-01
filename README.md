@@ -21,7 +21,7 @@
 | EmailNotificationService |	notification_db	| Notifications
 
 <br/><br/>
-## SpringBoot4-Dashboard-Inventory-Management-API
+# Order Processing using Kafka - Saga pattern
 https://github.com/pravinpachbhai/SpringBoot4-OrderProcessing-Kafka-SAGA
 
 
