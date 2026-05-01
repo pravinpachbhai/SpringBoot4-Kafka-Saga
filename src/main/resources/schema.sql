@@ -1,13 +1,5 @@
 
 
-CREATE TABLE kafka_failed_messages (
-                                       id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                       topic VARCHAR(255),
-                                       message JSON,
-                                       error TEXT,
-                                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE users (
                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
                        name VARCHAR(255),

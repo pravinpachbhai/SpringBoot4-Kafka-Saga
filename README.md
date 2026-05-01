@@ -1,28 +1,26 @@
-# SpringBoot4-Kafka-Saga
+# SpringBoot4-Dashboard-Management-API
 
-# Because of the limited resources I am creating all the service in one project
-
-# Please create different microservices for each service below and related database. Clear responsibilities, APIs, and database design per service.
 <br/>
 1 - UserService<br/>
 2 - OrderService<br/>
-3 - InventoryService<br/>
-4 - PaymentService<br/>
-5 - ShippingService<br/>
-6 - EmailNotificationService<br/>
+3 - ProductService<br/>
+4 - InventoryService<br/>
+5 - PaymentService<br/>
+6 - ShippingService<br/>
+7 - EmailNotificationService<br/>
 <br/><br/>
 
-| Service | DB | Responsibility |
-| -------- | -------- | -------- |
-| UserService |	user_db	| User management
-| OrderService |	order_db	| Orders
-| InventoryService	| inventory_db	| Stock
-| PaymentService	| payment_db	| Payments
-| ShippingService	| shipping_db	| Delivery
-| EmailNotificationService|	notification_db	| Notifications
+| Service                  | DB | Responsibility |
+|--------------------------| -------- | -------- |
+| UserService              |	user_db	| User management
+| OrderService             |	order_db	| Orders
+| ProductService           |	product_db	| Products
+| InventoryService	        | inventory_db	| Stock
+| PaymentService	          | payment_db	| Payments
+| ShippingService	         | shipping_db	| Delivery
+| EmailNotificationService |	notification_db	| Notifications
 
-<br/><br/>
-<img src="src/main/resources/static/Diagram.jpg" alt="Description" width="800">
+
 
 
 
